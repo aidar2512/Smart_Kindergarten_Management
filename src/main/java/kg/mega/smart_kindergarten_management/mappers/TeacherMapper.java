@@ -1,8 +1,8 @@
 package kg.mega.smart_kindergarten_management.mappers;
 
-import kg.mega.smart_kindergarten_management.models.Teacher;
-import kg.mega.smart_kindergarten_management.models.dto.TeacherCreateDto;
-import kg.mega.smart_kindergarten_management.models.dto.TeacherDto;
+import kg.mega.smart_kindergarten_managementtryal.models.Teacher;
+import kg.mega.smart_kindergarten_managementtryal.models.dto.TeacherCreateDto;
+import kg.mega.smart_kindergarten_managementtryal.models.dto.TeacherDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

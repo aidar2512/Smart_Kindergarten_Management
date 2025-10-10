@@ -1,14 +1,16 @@
 package kg.mega.smart_kindergarten_management.models.dto;
 
-import kg.mega.smart_kindergarten_management.models.enums.TeacherDegree;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
-public class TeacherDto {
+public class EnrollChildDto {
     private Long id;
     private String firstName;
     private String lastName;
     private String patronymic;
-    private TeacherDegree teacherDegree;
-    private Boolean active;
+    private LocalDate dateOfBirth;
+    private Long groupId;
+    private Integer price;
 }

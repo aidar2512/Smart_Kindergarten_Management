@@ -1,50 +1,57 @@
 package kg.mega.smart_kindergarten_management.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
-import kg.mega.smart_kindergarten_management.models.dto.TeacherCreateDto;
-import kg.mega.smart_kindergarten_management.models.dto.TeacherDto;
-import kg.mega.smart_kindergarten_management.services.TeacherService;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import kg.mega.smart_kindergarten_managementtryal.models.dto.TeacherCreateDto;
+import kg.mega.smart_kindergarten_managementtryal.models.dto.TeacherDto;
+import kg.mega.smart_kindergarten_managementtryal.services.TeacherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.data.domain.Pageable;
+
 
 @RestController
 @RequestMapping("/teacher")
+@Tag(name = "Teacher Controller", description = "Управление учителями")
 @RequiredArgsConstructor
-public class TeacherController {
+public class TeacherController implements CRUDController<TeacherCreateDto, TeacherDto> {
 
     private final TeacherService service;
 
-    @PostMapping
-    @Operation(summary = "Создание учителя")
+    @Override
+    @Operation(summary = "Создание сущности учителя")
     public ResponseEntity<TeacherDto> create(@RequestBody TeacherCreateDto dto) {
         return ResponseEntity.ok(service.create(dto));
     }
 
-    @PutMapping("/{id}")
-    @Operation(summary = "Обновление данных учителя")
+    @Override
+    @Operation(summary = "Обновление сущности учителя")
     public ResponseEntity<TeacherDto> update(@PathVariable Long id, @RequestBody TeacherCreateDto dto) {
         return ResponseEntity.ok(service.update(id, dto));
     }
 
-    @DeleteMapping("/{id}")
-    @Operation(summary = "Удаление учителя")
-    public ResponseEntity<String> delete(@PathVariable Long id) {
-        service.delete(id);
-        return ResponseEntity.ok("Учитель успешно удален");
-    }
-
-    @GetMapping("/{id}")
-    @Operation(summary = "Получение учителя по ID")
+    @Override
+    @Operation(summary = "Поиск учителя по айди")
     public ResponseEntity<TeacherDto> findById(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
 
-    @GetMapping
-    @Operation(summary = "Получение списка учителей с пагинацией")
+    @Override
+    @Operation(summary = "Вывод всех учителей с пагинацией")
     public ResponseEntity<Page<TeacherDto>> findAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
+    }
+
+    @Override
+    @Operation(summary = "Удаление сущности учителя")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.ok().build();
     }
 }

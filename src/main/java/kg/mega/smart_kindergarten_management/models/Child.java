@@ -1,19 +1,23 @@
 package kg.mega.smart_kindergarten_management.models;
 
-import jakarta.persistence.*;
-import kg.mega.smart_kindergarten_managementtryal.models.enums.TeacherDegree;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
-@Table(name = "teachers")
+@Table(name = "childrens")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Teacher {
+public class Child {
 
     @Id
     @GeneratedValue
@@ -22,10 +26,6 @@ public class Teacher {
     private String firstName;
     private String lastName;
     private String patronymic;
-
-    @Enumerated(EnumType.STRING)
-    private TeacherDegree teacherDegree;
-
-    private Boolean active;
+    private LocalDate dateOfBirth;
 }
 

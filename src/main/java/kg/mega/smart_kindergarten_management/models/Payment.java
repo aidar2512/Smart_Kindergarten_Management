@@ -6,25 +6,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
-@Table(name = "group_categories")
+@Table(name = "payments")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GroupCategory {
+public class Payment {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String name;
+    @ManyToOne
+    private GroupChildren groupChildren;
 
-    @Column(nullable = false)
-    private Boolean active;
-
-    @Column(nullable = false)
-    private Integer price;
+    private Integer amount;
+    private LocalDate paymentDate;
 }
 

@@ -1,7 +1,5 @@
 package kg.mega.smart_kindergarten_management.services;
 
-import kg.mega.smart_kindergarten_management.models.dto.TeacherCreateDto;
-import kg.mega.smart_kindergarten_management.models.dto.TeacherDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

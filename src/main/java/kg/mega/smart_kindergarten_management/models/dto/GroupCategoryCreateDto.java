@@ -1,4 +1,4 @@
-package kg.mega.smart_kindergarten_management.models.dto;
+package kg.mega.smart_kindergarten_managementtryal.models.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,7 +7,6 @@ import lombok.Data;
 
 @Data
 public class GroupCategoryCreateDto {
-
     @NotBlank(message = "Название категории обязательно")
     private String name;
 

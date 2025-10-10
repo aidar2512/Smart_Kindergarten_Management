@@ -4,8 +4,6 @@ import kg.mega.smart_kindergarten_management.exception.ConflictException;
 import kg.mega.smart_kindergarten_management.exception.NotFoundException;
 import kg.mega.smart_kindergarten_management.mappers.TeacherMapper;
 import kg.mega.smart_kindergarten_management.models.Teacher;
-import kg.mega.smart_kindergarten_management.models.dto.TeacherCreateDto;
-import kg.mega.smart_kindergarten_management.models.dto.TeacherDto;
 import kg.mega.smart_kindergarten_management.repositories.TeacherRepo;
 import kg.mega.smart_kindergarten_management.services.TeacherService;
 import lombok.RequiredArgsConstructor;

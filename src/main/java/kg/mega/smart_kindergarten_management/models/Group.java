@@ -7,24 +7,28 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "group_categories")
+@Table(name = "groups")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GroupCategory {
+public class Group {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false, unique = true)
     private String name;
-
-    @Column(nullable = false)
-    private Boolean active;
-
-    @Column(nullable = false)
+    private Integer maxChildrenCount;
     private Integer price;
+
+    @ManyToOne
+    private Teacher nanny;
+
+    @ManyToOne
+    private Teacher teacher;
+
+    @ManyToOne
+    private GroupCategory groupCategory;
 }
 

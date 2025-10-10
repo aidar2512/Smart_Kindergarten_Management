@@ -1,6 +1,10 @@
-package kg.mega.smart_kindergarten_management.models.dto;
+package kg.mega.smart_kindergarten_managementtryal.models.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
+
 
 @Data
 public class GroupCategoryDto {
@@ -9,3 +13,4 @@ public class GroupCategoryDto {
     private Boolean active;
     private Integer price;
 }
+

@@ -2,8 +2,6 @@ package kg.mega.smart_kindergarten_management.services.impl;
 
 import kg.mega.smart_kindergarten_management.mappers.GroupCategoryMapper;
 import kg.mega.smart_kindergarten_management.models.GroupCategory;
-import kg.mega.smart_kindergarten_management.models.dto.GroupCategoryCreateDto;
-import kg.mega.smart_kindergarten_management.models.dto.GroupCategoryDto;
 import kg.mega.smart_kindergarten_management.repositories.GroupCategoryRepo;
 import kg.mega.smart_kindergarten_management.services.GroupCategoryService;
 import lombok.RequiredArgsConstructor;
