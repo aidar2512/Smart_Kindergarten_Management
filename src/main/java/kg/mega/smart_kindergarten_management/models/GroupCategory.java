@@ -1,27 +1,26 @@
 package kg.mega.smart_kindergarten_management.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.FieldDefaults;
 
 @Entity
 @Table(name = "group_categories")
 @Data
-@FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class GroupCategory {
 
     @Id
-    @GeneratedValue
-    Long id;
-    String name;
-    boolean active;
-    double price;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(nullable = false, unique = true)
+    private String name;
 
+    @Column(nullable = false)
+    private Boolean active;
+
+    @Column(nullable = false)
+    private Integer price;
 }
