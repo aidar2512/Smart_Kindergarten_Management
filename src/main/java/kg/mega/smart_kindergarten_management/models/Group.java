@@ -33,4 +33,3 @@ public class Group {
     private GroupCategory groupCategory;
 }
 
-

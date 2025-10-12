@@ -13,21 +13,15 @@ import lombok.*;
 public class Teacher {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
-    @Column(nullable = false)
     private String firstName;
-
-    @Column(nullable = false)
     private String lastName;
-
     private String patronymic;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private TeacherDegree teacherDegree;
 
-    @Column(nullable = false)
     private Boolean active;
 }

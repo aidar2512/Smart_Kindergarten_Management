@@ -7,7 +7,6 @@ import lombok.Data;
 
 @Data
 public class GroupCategoryCreateDto {
-
     @NotBlank(message = "Название категории обязательно")
     private String name;
 

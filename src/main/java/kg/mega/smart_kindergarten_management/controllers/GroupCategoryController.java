@@ -1,6 +1,7 @@
 package kg.mega.smart_kindergarten_management.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import kg.mega.smart_kindergarten_management.models.dto.GroupCategoryCreateDto;
 import kg.mega.smart_kindergarten_management.models.dto.GroupCategoryDto;
 import kg.mega.smart_kindergarten_management.services.GroupCategoryService;
@@ -12,39 +13,40 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/group-category")
+@Tag(name = "GroupCategory controller", description = "Управление категориями групп")
 @RequiredArgsConstructor
-public class GroupCategoryController {
+public class GroupCategoryController implements CRUDController<GroupCategoryCreateDto, GroupCategoryDto> {
 
     private final GroupCategoryService service;
 
-    @PostMapping
+    @Override
     @Operation(summary = "Создание категории групп")
     public ResponseEntity<GroupCategoryDto> create(@RequestBody GroupCategoryCreateDto dto) {
         return ResponseEntity.ok(service.create(dto));
     }
 
-    @PutMapping("/{id}")
+    @Override
     @Operation(summary = "Обновление категории групп")
     public ResponseEntity<GroupCategoryDto> update(@PathVariable Long id, @RequestBody GroupCategoryCreateDto dto) {
         return ResponseEntity.ok(service.update(id, dto));
     }
 
-    @DeleteMapping("/{id}")
-    @Operation(summary = "Удаление категории групп")
-    public ResponseEntity<String> delete(@PathVariable Long id) {
-        service.delete(id);
-        return ResponseEntity.ok("Категория успешно удалена");
-    }
-
-    @GetMapping("/{id}")
-    @Operation(summary = "Получение категории по ID")
+    @Override
+    @Operation(summary = "Поиск категории групп по айди")
     public ResponseEntity<GroupCategoryDto> findById(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
 
-    @GetMapping
-    @Operation(summary = "Получение списка категорий с пагинацией")
+    @Override
+    @Operation(summary = "Вывод всех категорий групп с пагинацией")
     public ResponseEntity<Page<GroupCategoryDto>> findAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
+    }
+
+    @Override
+    @Operation(summary = "Удаление категории групп")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.ok().build();
     }
 }

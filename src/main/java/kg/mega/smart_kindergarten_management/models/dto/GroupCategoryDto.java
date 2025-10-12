@@ -9,3 +9,4 @@ public class GroupCategoryDto {
     private Boolean active;
     private Integer price;
 }
+

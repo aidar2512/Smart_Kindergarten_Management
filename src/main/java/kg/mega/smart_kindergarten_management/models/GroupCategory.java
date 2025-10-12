@@ -12,7 +12,7 @@ import lombok.*;
 public class GroupCategory {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     @Column(nullable = false, unique = true)

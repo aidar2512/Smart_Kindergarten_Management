@@ -1,0 +1,11 @@
+package kg.mega.smart_kindergarten_management.exception;
+
+
+public class NotFoundException extends RuntimeException {
+
+    public NotFoundException(String message) {
+        super(message);
+    }
+
+}
+
